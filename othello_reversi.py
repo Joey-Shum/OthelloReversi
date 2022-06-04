@@ -275,14 +275,14 @@ def main():
             print(old_player + " has no valid moves.  It is now "+ cur_player + "'s turn.\n")
             
         in_row = input("enter row: ")
-        in_col = input("enter col: ")
-    
-        while not(isinstance(in_row, int)) or not(0<=in_row<=7) or \
-              not(isinstance(in_col, int)) or not(0<=in_col<=7) or \
+        in_col = input("enter col: ")      
+         
+        while not(in_row.isnumeric()) or not(0<=int(in_row)<=7) or \
+              not(in_col.isnumeric()) or not(0<=int(in_col)<=7) or \
               new_board.check_val_move(cur_player, int(in_row), int(in_col)) == False:
             print("invalid move\n")
             in_row = input("enter row: ")
-            in_col = input("enter col: ")        
+            in_col = input("enter col: ")                
         
         new_board.update_board(cur_player, int(in_row), int(in_col))
         player_num = (player_num + 1) % 2
